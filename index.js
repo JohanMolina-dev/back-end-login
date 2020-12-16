@@ -2,7 +2,7 @@
 const express = require('express');
 //importacion de morgan
 const morgan = require('morgan');
-const apiRouter =require('./routes')
+const apiRouter =require('./routes/index')
 const bodyPArser = require('body-parser');
 //llamado de express desde la app
 const app = express();
@@ -26,7 +26,8 @@ app.use('/api', apiRouter);
 
 
 //Definicion de puerto
-app.set('PORT', 3001)
+app.set('PORT', process.env.PORT || 3000);
+
 //escuchador de express optiene el puerto
 app.listen(app.get('PORT'), () =>{
     console.log('up server')
